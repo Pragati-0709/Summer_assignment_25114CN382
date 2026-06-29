@@ -1,16 +1,11 @@
 #include<stdio.h>
 
-int rev = 0;
-
-int reverse(int n)
+int reverse(int n, int rev)
 {
-    if(n==0)
+    if(n == 0)
         return rev;
 
-    rev = rev*10 + n%10;
-
-    reverse(n/10);
-    return (rev);
+    return reverse(n / 10, rev * 10 + n % 10);
 }
 
 int main()
@@ -18,9 +13,9 @@ int main()
     int n;
 
     printf("Enter a number: ");
-    scanf("%d",&n);
+    scanf("%d", &n);
 
-    printf("Reverse = %d",reverse(n));
+    printf("Reverse = %d", reverse(n, 0));
 
     return 0;
 }
